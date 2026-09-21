@@ -1,24 +1,11 @@
 class Solution {
     public int missingNumber(int[] nums) {
 
-        int number = 0;
+        int result = nums.length;
 
-        for (int i = number; i <= nums.length; i++) {
-
-            boolean found = false;
-
-            for (int j = 0; j < nums.length; j++) {
-
-                if (number == nums[j]) {
-                    found = true;
-                    break;
-                }
-            }
-            if (!found)
-                return number;
-            number++;
-
+        for(int i=0; i<nums.length; i++){
+            result ^= i ^ nums[i];
         }
-        return -1;
+        return result;
     }
 }
